@@ -238,7 +238,7 @@ input[type="color"] {
 }
 
 /* Buttons */
-.menu-toggle,
+/*.menu-toggle,*/
 input[type="submit"],
 input[type="button"],
 input[type="reset"],
@@ -314,6 +314,32 @@ li.bypostauthor cite span {
 	box-shadow: none;
 	padding: 0;
 }
+.menu-toggle{
+    /*padding: 6px 10px;*/
+    /*padding: 0.428571429rem 0.714285714rem;*/
+    padding: 6px 0;
+    padding: 0.428571429rem 0;
+    font-size: 11px;
+    font-size: 0.785714286rem;
+    line-height: 1.428571429;
+    font-weight: normal;
+    color: #7c7c7c;
+    background-color: #e6e6e6;
+    background-repeat: repeat-x;
+    background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+    background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+    background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+    background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+    background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
+    border: 1px solid #d2d2d2;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
+
+    width:80%;
+    margin-top:10px;
+    margin-top:0.714285714rem;
+}
+
 
 /* Responsive images */
 .entry-content img,
@@ -535,9 +561,6 @@ a:hover {
 }
 
 /* Page structure */
-{
-
-}
 .site {
 	/*padding: 0 24px;*/
 	/*padding: 0 1.714285714rem;*/
@@ -549,6 +572,7 @@ a:hover {
     margin: 12px 0 0;
     margin: 0.857142857rem;
 }
+
 .widget-area {
 	/*margin: 24px 0 0;*/
 	/*margin: 1.714285714rem 0 0;*/
@@ -611,8 +635,8 @@ a:hover {
 	text-align: center;
 }
 .main-navigation li {
-	margin-top: 24px;
-	margin-top: 1.714285714rem;
+	/*margin-top: 24px;*/
+	/*margin-top: 1.714285714rem;*/
 	font-size: 12px;
 	font-size: 0.857142857rem;
 	line-height: 1.42857143;
@@ -626,14 +650,32 @@ a:hover {
 .main-navigation ul.nav-menu,
 .main-navigation div.nav-menu > ul {
 	display: none;
-
 }
 .main-navigation ul.nav-menu.toggled-on,
 .menu-toggle {
 	display: inline-block;
 }
+.main-navigation .menu-mynav-container{
+    margin:auto;
+}
+ul.nav-menu.toggled-on{
+    width:80%;
+}
+ul.nav-menu.toggled-on>li.menu-item{
+    border: 1px solid #a0a0a0;
+    padding:4px 0;
+    padding:0.285714285 0;
+    background-color: #fafafa;
+}
+ul.nav-menu.toggled-on>li.menu-item a{
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+}
 
-
+ul.nav-menu.toggled-on ul.sub-menu{
+    display: none;
+}
 
 /* Banner */
 section[role="banner"] {
@@ -1489,8 +1531,8 @@ img#wpstats {
         width: 100%;
         float:none;
         max-width:960px;
-        margin:12px 0 0 0;
-        margin:0.857142856rem 0 0 0;
+        margin:12px 0 0 12px;
+        margin:0.857142856rem 0 0 0.857142856rem;
     }
 	.widget-area {
 		float: left;
@@ -1506,10 +1548,11 @@ img#wpstats {
 		line-height: 1.846153846;
 		margin-bottom: 0;
 	}
+
 	.main-navigation ul.nav-menu,
 	.main-navigation div.nav-menu > ul {
 		border-bottom: 1px solid #ededed;
-		border-top: 1px solid #ededed;
+		/*border-top: 1px solid #ededed;*/
 		display: inline-block !important;
 		text-align: left;
 		width: 100%;
@@ -1518,11 +1561,6 @@ img#wpstats {
 		margin: 0;
 		text-indent: 0;
 	}
-    .main-navigation li{
-        background-color: #ccc;
-        text-align: center;
-        width: 120px;
-    }
 	.main-navigation li a,
 	.main-navigation li {
 		display: inline-block;
@@ -1537,7 +1575,6 @@ img#wpstats {
 		white-space: nowrap;
         text-align: center;
 	}
-
 	.main-navigation li {
 		/*margin: 0 40px 0 0;*/
 		/*margin: 0 2.857142857rem 0 0;*/
@@ -1553,7 +1590,6 @@ img#wpstats {
     .main-navigation li.current-menu-item a{
         background-color: #aaa;
         color:#ffffff;
-
     }
 	.main-navigation li ul {
 		display: none;
@@ -1601,6 +1637,25 @@ img#wpstats {
 	.menu-toggle {
 		display: none;
 	}
+
+/*getback from toggled-on-menu to 600px-menu*/
+    ul.nav-menu.toggled-on{
+        border-bottom: 1px solid #ededed;
+        border-top: 1px solid #ededed;
+        display: inline-block !important;
+        text-align: left;
+        width: 100%;
+    }
+    ul.nav-menu.toggled-on>li.menu-item{
+        border:none;
+        padding: 0;
+        background-color: #eee;
+    }
+    ul.nav-menu.toggled-on li:hover > ul{
+        border-left: 0;
+        display: block;
+    }
+
 	.entry-header .entry-title {
 		font-size: 22px;
 		font-size: 1.571428571rem;
