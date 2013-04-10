@@ -768,9 +768,13 @@ footer[role="contentinfo"] a:hover {
 	clear: both;
 }
 .entry-header {
-	margin-bottom: 24px;
-	margin-bottom: 1.714285714rem;
+    height: 48px;
+    height: 3.428571428rem;
+	margin-bottom: 4px;
+	margin-bottom: 0.285714285rem;
 }
+
+
 .entry-header img.wp-post-image {
 	margin-bottom: 24px;
 	margin-bottom: 1.714285714rem;
@@ -780,6 +784,9 @@ footer[role="contentinfo"] a:hover {
 	font-size: 1.428571429rem;
 	line-height: 1.2;
 	font-weight: normal;
+    vertical-align: middle;
+    padding-top:12px;
+    padding-top:0.857142857rem;
 }
 .entry-header .entry-title a {
 	text-decoration: none;
@@ -1582,7 +1589,8 @@ img#wpstats {
 		position: relative;
         background-color: #eee;
         text-align: center;
-        width: 120px;
+        width: 116px;
+        width: 8.285714285rem;
 	}
     .main-navigation li:hover,
     .main-navigation li a:hover,
@@ -1705,6 +1713,23 @@ img#wpstats {
 		margin-left: 48px;
 		margin-left: 3.428571429rem;
 	}
+    .wpsc_default_product_list .default_product_display{
+        border: 1px solid #333333;
+        display: inline-block;
+        width:160px;
+    }
+    .wpsc_default_product_list .default_product_display .imagecol{
+        float: none;
+        display: block;
+    }
+    .wpsc_default_product_list .default_product_display .productcol{
+        float: none;
+        display: block;
+        text-align: center;
+    }
+    .wpsc_default_product_list .default_product_display .productcol a{
+        text-decoration: none;
+    }
 }
 
 /* Minimum width of 960 pixels. */

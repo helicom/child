@@ -147,7 +147,36 @@
 									<?php endif; ?>
 								<?php endif; ?>
 							</div><!--close wpsc_product_price-->
+                            <?php
+                            /**
+                             * Cart Options
+                             */
+                            ?>
+
+                            <?php if((get_option('hide_addtocart_button') == 0) &&  (get_option('addtocart_or_buynow') !='1')) : ?>
+                                <?php if(wpsc_product_has_stock()) : ?>
+                                    <div class="wpsc_buy_button_container">
+                                        <?php if(wpsc_product_external_link(wpsc_the_product_id()) != '') : ?>
+                                        <?php $action = wpsc_product_external_link( wpsc_the_product_id() ); ?>
+                                        <input class="wpsc_buy_button" type="submit" value="<?php echo wpsc_product_external_link_text( wpsc_the_product_id(), __( 'Buy Now', 'wpsc' ) ); ?>" onclick="return gotoexternallink('<?php echo esc_url( $action ); ?>', '<?php echo wpsc_product_external_link_target( wpsc_the_product_id() ); ?>')">
+                                        <?php else: ?>
+                                        <input type="submit" value="<?php _e('Add To Cart', 'wpsc'); ?>" name="Buy" class="wpsc_buy_button" id="product_<?php echo wpsc_the_product_id(); ?>_submit_button"/>
+                                        <?php endif; ?>
+                                        <div class="wpsc_loading_animation">
+                                            <img title="Loading" alt="Loading" src="<?php echo wpsc_loading_animation_url(); ?>" />
+                                            <?php _e('Updating cart...', 'wpsc'); ?>
+                                        </div><!--close wpsc_loading_animation-->
+                                    </div><!--close wpsc_buy_button_container-->
+                                <?php else : ?>
+                                    <p class="soldout"><?php _e('This product has sold out.', 'wpsc'); ?></p>
+                                <?php endif ; ?>
+                            <?php endif ; ?>
 							<!--sharethis-->
+                            <?php if(wpsc_show_fb_like()): ?>
+                            <div class="FB_like">
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=<?php echo wpsc_the_product_permalink(); ?>&amp;layout=standard&amp;show_faces=true&amp;width=435&amp;action=like&amp;font=arial&amp;colorscheme=light" frameborder="0"></iframe>
+                            </div><!--close FB_like-->
+                            <?php endif; ?>
 							<?php if ( get_option( 'wpsc_share_this' ) == 1 ): ?>
 							<div class="st_sharethis" displayText="ShareThis"></div>
 							<?php endif; ?>
@@ -158,30 +187,7 @@
 								<input type="hidden" value="true" name="is_customisable"/>
 							<?php endif; ?>
 
-							<?php
-							/**
-							 * Cart Options
-							 */
-							?>
 
-							<?php if((get_option('hide_addtocart_button') == 0) &&  (get_option('addtocart_or_buynow') !='1')) : ?>
-								<?php if(wpsc_product_has_stock()) : ?>
-									<div class="wpsc_buy_button_container">
-											<?php if(wpsc_product_external_link(wpsc_the_product_id()) != '') : ?>
-											<?php $action = wpsc_product_external_link( wpsc_the_product_id() ); ?>
-											<input class="wpsc_buy_button" type="submit" value="<?php echo wpsc_product_external_link_text( wpsc_the_product_id(), __( 'Buy Now', 'wpsc' ) ); ?>" onclick="return gotoexternallink('<?php echo esc_url( $action ); ?>', '<?php echo wpsc_product_external_link_target( wpsc_the_product_id() ); ?>')">
-											<?php else: ?>
-										<input type="submit" value="<?php _e('Add To Cart', 'wpsc'); ?>" name="Buy" class="wpsc_buy_button" id="product_<?php echo wpsc_the_product_id(); ?>_submit_button"/>
-											<?php endif; ?>
-										<div class="wpsc_loading_animation">
-											<img title="Loading" alt="Loading" src="<?php echo wpsc_loading_animation_url(); ?>" />
-											<?php _e('Updating cart...', 'wpsc'); ?>
-										</div><!--close wpsc_loading_animation-->
-									</div><!--close wpsc_buy_button_container-->
-								<?php else : ?>
-									<p class="soldout"><?php _e('This product has sold out.', 'wpsc'); ?></p>
-								<?php endif ; ?>
-							<?php endif ; ?>
 							<?php do_action ( 'wpsc_product_form_fields_end' ); ?>
 						</form><!--close product_form-->
 
@@ -192,12 +198,8 @@
 							echo wpsc_product_rater();
 
 							echo wpsc_also_bought( wpsc_the_product_id() );
+                        ?>
 
-						if(wpsc_show_fb_like()): ?>
-	                        <div class="FB_like">
-	                        <iframe src="https://www.facebook.com/plugins/like.php?href=<?php echo wpsc_the_product_permalink(); ?>&amp;layout=standard&amp;show_faces=true&amp;width=435&amp;action=like&amp;font=arial&amp;colorscheme=light" frameborder="0"></iframe>
-	                        </div><!--close FB_like-->
-                        <?php endif; ?>
 					</div><!--close productcol-->
 					<form onsubmit="submitform(this);return false;" action="<?php echo esc_url( wpsc_this_page_url() ); ?>" method="post" name="product_<?php echo wpsc_the_product_id(); ?>" id="product_extra_<?php echo wpsc_the_product_id(); ?>">
 						<input type="hidden" value="<?php echo wpsc_the_product_id(); ?>" name="prodid"/>
