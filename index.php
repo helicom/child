@@ -16,13 +16,13 @@
 
 get_header(); ?>
 
+<?php get_sidebar(); ?>
+
 <div id="primary" class="site-content">
     <div id="content" role="main">
-        <p>THIS IS THE TOP PAGE.</p>
+        <p>THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. </p>
     </div><!-- #content -->
 </div><!-- #primary -->
-
-<?php get_sidebar(); ?>
 
 
 <?php get_footer(); ?>

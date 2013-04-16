@@ -18,7 +18,7 @@ endif;
    <tr class="header">
       <th colspan="2" ><?php _e('Product', 'wpsc'); ?></th>
       <th><?php _e('Quantity', 'wpsc'); ?></th>
-      <th><?php _e('Price', 'wpsc'); ?></th>
+      <th><?php _e('単価', 'wpsc'); ?></th>
       <th><?php _e('Total', 'wpsc'); ?></th>
         <th>&nbsp;</th>
    </tr>
@@ -215,31 +215,6 @@ endif;
    <?php endif; ?>
    <?php do_action('wpsc_before_form_of_shopping_cart'); ?>
 
-	<?php if( ! empty( $wpsc_registration_error_messages ) ): ?>
-		<p class="validation-error">
-		<?php
-		foreach( $wpsc_registration_error_messages as $user_error )
-		 echo $user_error."<br />\n";
-		?>
-	<?php endif; ?>
-
-	<?php if ( wpsc_show_user_login_form() && !is_user_logged_in() ): ?>
-			<p><?php _e('You must sign in or register with us to continue with your purchase', 'wpsc');?></p>
-			<div class="wpsc_registration_form">
-
-				<fieldset class='wpsc_registration_form'>
-					<h2><?php _e( 'Sign in', 'wpsc' ); ?></h2>
-					<?php
-					$args = array(
-						'remember' => false,
-                    	'redirect' => home_url( $_SERVER['REQUEST_URI'] )
-					);
-					wp_login_form( $args );
-					?>
-					<div class="wpsc_signup_text"><?php _e('If you have bought from us before please sign in here to purchase', 'wpsc');?></div>
-				</fieldset>
-			</div>
-	<?php endif; ?>
    <table class='wpsc_checkout_table wpsc_checkout_table_totals'>
       <?php if(wpsc_uses_shipping()) : ?>
 	      <tr class="total_price total_shipping">
@@ -263,18 +238,41 @@ endif;
          </tr>
      <?php endif ?>
 
-
-
-   <tr class='total_price'>
-      <td class='wpsc_totals'>
-      <?php _e('Total Price:', 'wpsc'); ?>
-      </td>
-      <td class='wpsc_totals'>
-         <span id='checkout_total' class="pricedisplay checkout-total"><?php echo wpsc_cart_total(); ?></span>
-      </td>
-   </tr>
+       <tr class='total_price'>
+          <td class='wpsc_totals'>
+          <?php _e('ご請求額合計', 'wpsc'); ?>
+          </td>
+          <td class='wpsc_totals'>
+             <span id='checkout_total' class="pricedisplay checkout-total"><?php echo wpsc_cart_total(); ?></span>
+          </td>
+       </tr>
    </table>
 
+    <?php if( ! empty( $wpsc_registration_error_messages ) ): ?>
+		<p class="validation-error">
+		<?php
+            foreach( $wpsc_registration_error_messages as $user_error )
+            echo $user_error."<br />\n";
+        ?>
+    <?php endif; ?>
+
+    <?php if ( wpsc_show_user_login_form() && !is_user_logged_in() ): ?>
+    <div class="wpsc_registration_form">
+        <fieldset class='wpsc_registration_form'>
+            <div class="wpsc_signup_text"><?php _e('If you have bought from us before please sign in here to purchase', 'wpsc');?></div>
+            <h2><?php _e( 'Sign in', 'wpsc' ); ?></h2>
+            <?php
+            $args = array(
+                'remember' => false,
+                'redirect' => home_url( $_SERVER['REQUEST_URI'] )
+            );
+            wp_login_form( $args );
+            ?>
+        </fieldset>
+    </div>
+    <p><?php _e('You must sign in or register with us to continue with your purchase', 'wpsc');?></p>
+    <?php endif; ?>
+    <div class="checkout_forms_div">
 	<form class='wpsc_checkout_forms' action='<?php echo esc_url( get_option( 'shopping_cart_url' ) ); ?>' method='post' enctype="multipart/form-data">
       <?php
       /**
@@ -316,6 +314,8 @@ endif;
       <?php
       endif;
       ?>
+      <h3>ご注文者情報</h3>
+      <p>以下の記入欄に入力して、一番下の「購入する」ボタンを押してください<br>&nbsp;</p>
 <?php ob_start(); ?>
    <table class='wpsc_checkout_table table-1'>
       <?php $i = 0;
@@ -394,12 +394,13 @@ endif;
                      <label class='wpsc_email_address' for='" . wpsc_checkout_form_element_id() . "'>
                      " . __('Enter your email address', 'wpsc') . "
                      </label>
+                     <small>（ご注文情報はこちらのメールアドレスに送付されます。）<br /></small>
                   <p class='wpsc_email_address_p'>
-                  <img src='https://secure.gravatar.com/avatar/empty?s=60&amp;d=mm' id='wpsc_checkout_gravatar' />
                   " . wpsc_checkout_form_field();
 
                    if(wpsc_the_checkout_item_error() != '')
                       $email_markup .= "<p class='validation-error'>" . wpsc_the_checkout_item_error() . "</p>";
+//              after br:<img src='https://secure.gravatar.com/avatar/empty?s=60&amp;d=mm' id='wpsc_checkout_gravatar' />
                $email_markup .= "</div>";
              }else{ ?>
 			<tr>
@@ -501,6 +502,7 @@ endif;
 
 <div class='clear'></div>
 </form>
+</div>
 </div>
 </div><!--close checkout_page_container-->
 <?php

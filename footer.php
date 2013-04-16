@@ -13,7 +13,11 @@
 	</div><!-- #main .wrapper -->
 	<footer id="colophon" role="contentinfo">
 		<div class="site-info">
-            So this is footer.
+            <?php if (is_user_logged_in()) : ?>
+            <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php _e('Logout','sp'); ?>" class="account_logout">
+                <?php _e('Logout','sp'); ?>
+            </a>
+            <?php endif ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
