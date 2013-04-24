@@ -73,6 +73,8 @@
 						 * Form data
 						 */
 						?>
+                        </div>
+                        <div id="productcol2" class="productcol">
 						<form class="product_form" enctype="multipart/form-data" action="<?php echo esc_url( wpsc_this_page_url() ); ?>" method="post" name="1" id="product_<?php echo wpsc_the_product_id(); ?>">
 							<?php do_action ( 'wpsc_product_form_fields_begin' ); ?>
 							<?php if ( wpsc_product_has_personal_text() ) : ?>
@@ -116,23 +118,9 @@
 							 * Quantity options - MUST be enabled in Admin Settings
 							 */
 							?>
-							<?php if(wpsc_has_multi_adding()): ?>
-                            	<fieldset><legend><?php _e('Quantity', 'wpsc'); ?></legend>
-								<div class="wpsc_quantity_update">
-								<input type="text" id="wpsc_quantity_update_<?php echo wpsc_the_product_id(); ?>" name="wpsc_quantity_update" size="2" value="1" />
-								<input type="hidden" name="key" value="<?php echo wpsc_the_cart_item_key(); ?>"/>
-								<input type="hidden" name="wpsc_update_quantity" value="true" />
-                                </div><!--close wpsc_quantity_update-->
-                                </fieldset>
-							<?php endif ;?>
+
 							<div class="wpsc_product_price">
-								<?php if(wpsc_show_stock_availability()): ?>
-									<?php if(wpsc_product_has_stock()) : ?>
-										<div id="stock_display_<?php echo wpsc_the_product_id(); ?>" class="in_stock"><?php _e('Product in stock', 'wpsc'); ?></div>
-									<?php else: ?>
-										<div id="stock_display_<?php echo wpsc_the_product_id(); ?>" class="out_of_stock"><?php _e('Product not in stock', 'wpsc'); ?></div>
-									<?php endif; ?>
-								<?php endif; ?>
+
 								<?php if(wpsc_product_is_donation()) : ?>
 									<label for="donation_price_<?php echo wpsc_the_product_id(); ?>"><?php _e('Donation', 'wpsc'); ?>: </label>
 									<input type="text" id="donation_price_<?php echo wpsc_the_product_id(); ?>" name="donation_price" value="<?php echo wpsc_calculate_price(wpsc_the_product_id()); ?>" size="6" />
@@ -146,7 +134,23 @@
 										<p class="pricedisplay"><?php _e('Shipping', 'wpsc'); ?>:<span class="pp_price"><?php echo wpsc_product_postage_and_packaging(); ?></span></p>
 									<?php endif; ?>
 								<?php endif; ?>
+                                <?php if(wpsc_show_stock_availability()): ?>
+                                    <?php if(wpsc_product_has_stock()) : ?>
+                                        <div id="stock_display_<?php echo wpsc_the_product_id(); ?>" class="in_stock"><?php _e('Product in stock', 'wpsc'); ?></div>
+                                    <?php else: ?>
+                                        <div id="stock_display_<?php echo wpsc_the_product_id(); ?>" class="out_of_stock"><?php _e('Product not in stock', 'wpsc'); ?></div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
 							</div><!--close wpsc_product_price-->
+                            <?php if(wpsc_has_multi_adding()): ?>
+                            <fieldset><legend><?php _e('Quantity', 'wpsc'); ?></legend>
+                                <div class="wpsc_quantity_update">
+                                    <input type="text" id="wpsc_quantity_update_<?php echo wpsc_the_product_id(); ?>" name="wpsc_quantity_update" size="2" value="1" />
+                                    <input type="hidden" name="key" value="<?php echo wpsc_the_cart_item_key(); ?>"/>
+                                    <input type="hidden" name="wpsc_update_quantity" value="true" />
+                                </div><!--close wpsc_quantity_update-->
+                            </fieldset>
+                            <?php endif ;?>
                             <?php
                             /**
                              * Cart Options
@@ -199,7 +203,6 @@
 
 							echo wpsc_also_bought( wpsc_the_product_id() );
                         ?>
-
 					</div><!--close productcol-->
 					<form onsubmit="submitform(this);return false;" action="<?php echo esc_url( wpsc_this_page_url() ); ?>" method="post" name="product_<?php echo wpsc_the_product_id(); ?>" id="product_extra_<?php echo wpsc_the_product_id(); ?>">
 						<input type="hidden" value="<?php echo wpsc_the_product_id(); ?>" name="prodid"/>

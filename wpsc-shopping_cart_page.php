@@ -16,7 +16,8 @@ endif;
 <h3><?php _e('Please review your order', 'wpsc'); ?></h3>
 <table class="checkout_cart">
    <tr class="header">
-      <th colspan="2" ><?php _e('Product', 'wpsc'); ?></th>
+<!--      <th colspan="2" >--><?php //_e('Product', 'wpsc'); ?><!--</th>-->
+      <th><?php _e('Product', 'wpsc'); ?></th>
       <th><?php _e('Quantity', 'wpsc'); ?></th>
       <th><?php _e('単価', 'wpsc'); ?></th>
       <th><?php _e('Total', 'wpsc'); ?></th>
@@ -237,7 +238,7 @@ endif;
           </td>
          </tr>
      <?php endif ?>
-
+        <p style="font-size:10px;font-size: 0.714285714rem;">・数量を変更する際は、ご希望の数量を入力して「更新」を押してください。<br />・残り在庫数を越える数量を入力する事は出来ません。<br />&nbsp;</p>
        <tr class='total_price'>
           <td class='wpsc_totals'>
           <?php _e('ご請求額合計', 'wpsc'); ?>

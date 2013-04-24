@@ -28,6 +28,9 @@
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type='text/javascript' src='<?php bloginfo('siteurl');?>/wp-content/themes/child/wp-vesp.js'></script>
+
 <?php wp_head(); ?>
 </head>
 
