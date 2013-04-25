@@ -4,9 +4,9 @@ jQuery(document).ready(function(){
     });
     jQuery(".single_product_display .product_form .wpsc_variation_forms tbody tr:first-child select").addClass("select_color");
     jQuery(".single_product_display .product_form .wpsc_variation_forms tbody tr:nth-child(2) select").addClass("select_size");
-    var showStock = jQuery(".single_product_display .wpsc_product_price div:nth-child(4)");
+    var showStock = jQuery(".single_product_display .product_form div.wpsc_product_price:nth-child(3)");
     var showBuy = jQuery(".single_product_display .wpsc_buy_button_container");
-    var showQuantity = jQuery(".single_product_display .product_form fieldset:nth-child(3)");
+    var showQuantity = jQuery(".single_product_display .product_form fieldset:nth-child(4)");
     jQuery(showQuantity).hide();
     jQuery(showStock).hide();
     jQuery(showBuy).hide();

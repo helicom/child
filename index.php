@@ -20,10 +20,6 @@ get_header(); ?>
 
 <div id="primary" class="site-content">
     <div id="content" role="main">
-        <p>THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. THIS IS THE TOP PAGE. </p>
-        <div id="jQuerytest">
-            Click, then font-weight becomes bold.
-        </div>
     </div><!-- #content -->
 </div><!-- #primary -->
 

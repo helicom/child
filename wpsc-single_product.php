@@ -27,6 +27,7 @@
 		 */
 
 		while ( wpsc_have_products() ) : wpsc_the_product(); ?>
+            <div class="img_product_wrap">
 					<div class="imagecol">
 						<?php if ( wpsc_the_product_thumbnail() ) : ?>
 								<a rel="<?php echo wpsc_the_product_title(); ?>" class="<?php echo wpsc_the_product_image_link_classes(); ?>" href="<?php echo esc_url( wpsc_the_product_image() ); ?>">
@@ -73,7 +74,8 @@
 						 * Form data
 						 */
 						?>
-                        </div>
+                    </div>
+            </div>
                         <div id="productcol2" class="productcol">
 						<form class="product_form" enctype="multipart/form-data" action="<?php echo esc_url( wpsc_this_page_url() ); ?>" method="post" name="1" id="product_<?php echo wpsc_the_product_id(); ?>">
 							<?php do_action ( 'wpsc_product_form_fields_begin' ); ?>
@@ -93,9 +95,25 @@
 									<input type="file" name="custom_file" />
 								</fieldset>
 							<?php endif; ?>
+                            <div class="wpsc_product_price">
+                                <?php if(wpsc_product_is_donation()) : ?>
+                                <label for="donation_price_<?php echo wpsc_the_product_id(); ?>"><?php _e('Donation', 'wpsc'); ?>: </label>
+                                <input type="text" id="donation_price_<?php echo wpsc_the_product_id(); ?>" name="donation_price" value="<?php echo wpsc_calculate_price(wpsc_the_product_id()); ?>" size="6" />
+                                <?php else : ?>
+                                <?php wpsc_the_product_price_display(); ?>
+                                <!-- multi currency code -->
+                                <?php if(wpsc_product_has_multicurrency()) : ?>
+                                    <?php echo wpsc_display_product_multicurrency(); ?>
+                                    <?php endif; ?>
+                                <?php if(wpsc_show_pnp()) : ?>
+                                    <p class="pricedisplay"><?php _e('Shipping', 'wpsc'); ?>:<span class="pp_price"><?php echo wpsc_product_postage_and_packaging(); ?></span></p>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
 						<?php /** the variation group HTML and loop */?>
                         <?php if (wpsc_have_variation_groups()) { ?>
-                        <fieldset><legend><?php _e('Product Options', 'wpsc'); ?></legend>
+<!--                        <fieldset><legend>--><?php //_e('Product Options', 'wpsc'); ?><!--</legend>-->
+                        <fieldset><legend><?php _e('オプションを選択してください', 'wpsc'); ?></legend>
 						<div class="wpsc_variation_forms">
                         	<table>
 							<?php while (wpsc_have_variation_groups()) : wpsc_the_variation_group(); ?>
@@ -120,20 +138,6 @@
 							?>
 
 							<div class="wpsc_product_price">
-
-								<?php if(wpsc_product_is_donation()) : ?>
-									<label for="donation_price_<?php echo wpsc_the_product_id(); ?>"><?php _e('Donation', 'wpsc'); ?>: </label>
-									<input type="text" id="donation_price_<?php echo wpsc_the_product_id(); ?>" name="donation_price" value="<?php echo wpsc_calculate_price(wpsc_the_product_id()); ?>" size="6" />
-								<?php else : ?>
-									<?php wpsc_the_product_price_display(); ?>
-									 <!-- multi currency code -->
-                                    <?php if(wpsc_product_has_multicurrency()) : ?>
-	                                    <?php echo wpsc_display_product_multicurrency(); ?>
-                                    <?php endif; ?>
-									<?php if(wpsc_show_pnp()) : ?>
-										<p class="pricedisplay"><?php _e('Shipping', 'wpsc'); ?>:<span class="pp_price"><?php echo wpsc_product_postage_and_packaging(); ?></span></p>
-									<?php endif; ?>
-								<?php endif; ?>
                                 <?php if(wpsc_show_stock_availability()): ?>
                                     <?php if(wpsc_product_has_stock()) : ?>
                                         <div id="stock_display_<?php echo wpsc_the_product_id(); ?>" class="in_stock"><?php _e('Product in stock', 'wpsc'); ?></div>

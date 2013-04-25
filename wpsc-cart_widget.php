@@ -53,13 +53,15 @@
 	</table>
         <a target="_parent" href="<?php bloginfo('url'); ?>/account/checkout" title="<?php esc_html_e('Checkout', 'wpsc'); ?>" class="gocheckout">
             <div id="cart-widget-links">
-                <?php esc_html_e('Checkout', 'wpsc'); ?>
+<!--                --><?php //esc_html_e('Checkout', 'wpsc'); ?>
+                <?php esc_html_e('レジに進む', 'wpsc'); ?>
             </div>
         </a>
 	</div><!--close shoppingcart-->
 <?php else: ?>
 	<p class="empty">
-		<?php _e('Your shopping cart is empty', 'wpsc'); ?><br />
+<!--		--><?php //_e('Your shopping cart is empty', 'wpsc'); ?><!--<br />-->
+        <?php _e('カートが空です', 'wpsc'); ?><br />
 <!--		<a target="_parent" href="--><?php //echo esc_url( get_option( 'product_list_url' ) ); ?><!--" class="visitshop" title="--><?php //esc_html_e('Visit Shop', 'wpsc'); ?><!--">--><?php //esc_html_e('Visit the shop', 'wpsc'); ?><!--</a>-->
 	</p>
 <?php endif; ?>

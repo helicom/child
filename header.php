@@ -30,7 +30,6 @@
 <![endif]-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script type='text/javascript' src='<?php bloginfo('siteurl');?>/wp-content/themes/child/wp-vesp.js'></script>
-
 <?php wp_head(); ?>
 </head>
 

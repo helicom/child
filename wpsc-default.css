@@ -485,13 +485,14 @@ table.list_productdisplay p.soldout {
 .imagecol {
 	margin-right:5px;
 /* 	width:25%; */
-	float:left;	
+	float:left;
 	position:relative;
     display: inline-block;
 }
-#productcol2{
+.img_product_wrap{
+    min-height: 150px;
     display: block;
-    clear: both;
+    position: relative;
 }
 
 .single_product_display .imagecol img.product_image {
@@ -622,9 +623,11 @@ table.list_productdisplay p.soldout {
 .single_product_display .wpsc_product_price {
 	display: inline-block;
 	font-size: 16px;
-    margin-top:10px;
-	margin-bottom: 10px;
-	padding: 5px;
+    /*margin-top:10px;*/
+	/*margin-bottom: 10px;*/
+	/*padding: 5px;*/
+    margin: 0;
+    padding: 0;
 }
 
 .single_product_display .wpsc_product_price p, #content .single_product_display .wpsc_product_price p {
@@ -847,11 +850,11 @@ span.rating_saved{
 
 .shopping-cart-wrapper .shoppingcart #cart-widget-links{
     width: 100%;
-    height: 20px;
-    height: 1.428571428rem;
+    height: 30px;
+    height: 2.142857142rem;
     border-radius: 4px;
-    padding-top: 4px;
-    padding-top: 0.28571428571rem;
+    padding-top: 12px;
+    padding-top: 0.857142857rem;
     background-image: -moz-linear-gradient(top, #f4c080, #ff5020);
     background-image: -ms-linear-gradient(top, #f4c080, #ff5020);
     background-image: -webkit-linear-gradient(top, #f4c080, #ff5020);
@@ -878,14 +881,15 @@ span.rating_saved{
 	text-decoration: underline;
 }
 
-.shopping-cart-wrapper .remove_button {
+.shopping-cart-wrapper .remove_button,
+.shopping-cart-wrapper .remove_button:hover{
 	background:url(wpsc-images/delete.png) no-repeat scroll 0 4px transparent;
 	width:14px;
 	text-indent:-9999px;
 	border:none;
 	outline:none;
 	*line-height:1;
-	cursor:pointer;	
+	cursor:pointer;
 }
 
 .shopping-cart-wrapper .shoppingcart table tbody td.cart-widget-remove{
@@ -1227,12 +1231,21 @@ background-color: #f5f5f5;
     font-size: 1rem;
 }
 
+#post-27 .wrap form tr:first-child,
+#post-27 .wrap form tr:nth-child(13){
+    background-color: #ffeea0;
+}
+
+
 .wpsc_registration_form {
 	/*float:left;*/
 	margin-top: 15px;
     margin-bottom: 15px;
-	width:300px;
+	/*width:300px;*/
     display: block;
+    /*border-left-style: solid;*/
+    /*border-left-color: #E7E7E7;*/
+    /*border-left-width: 2px;*/
 }
 
 .wpsc_registration_form label {
@@ -1246,15 +1259,15 @@ background-color: #f5f5f5;
 	padding-left: 0px;
 	/*padding-top: 12px;*/
 	border-top-color: #E7E7E7;
-
+    padding-left: 20px;
     border-top-style: solid;
 	border-top-width: 2px;
 }
 
 .wpsc_registration_form.wpsc_right_registration{
-	border-left-style: solid;
-	border-left-color: #E7E7E7;
-	border-left-width: 2px;
+	/*border-left-style: solid;*/
+	/*border-left-color: #E7E7E7;*/
+	/*border-left-width: 2px;*/
 	padding-left: 20px;
 }
 

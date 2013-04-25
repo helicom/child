@@ -238,7 +238,7 @@ endif;
           </td>
          </tr>
      <?php endif ?>
-        <p style="font-size:10px;font-size: 0.714285714rem;">・数量を変更する際は、ご希望の数量を入力して「更新」を押してください。<br />・残り在庫数を越える数量を入力する事は出来ません。<br />&nbsp;</p>
+        <p style="font-size:10px;font-size: 0.714285714rem;">・数量を変更する際は、ご希望の数量を入力して「再計算」を押してください。<br />・残り在庫数を越える数量を入力する事は出来ません。<br />&nbsp;</p>
        <tr class='total_price'>
           <td class='wpsc_totals'>
           <?php _e('ご請求額合計', 'wpsc'); ?>
@@ -258,9 +258,9 @@ endif;
     <?php endif; ?>
 
     <?php if ( wpsc_show_user_login_form() && !is_user_logged_in() ): ?>
+<p><?php _e('You must sign in or register with us to continue with your purchase', 'wpsc');?></p>
     <div class="wpsc_registration_form">
         <fieldset class='wpsc_registration_form'>
-            <div class="wpsc_signup_text"><?php _e('If you have bought from us before please sign in here to purchase', 'wpsc');?></div>
             <h2><?php _e( 'Sign in', 'wpsc' ); ?></h2>
             <?php
             $args = array(
@@ -269,9 +269,9 @@ endif;
             );
             wp_login_form( $args );
             ?>
+            <div class="wpsc_signup_text"><?php _e('If you have bought from us before please sign in here to purchase', 'wpsc');?></div>
         </fieldset>
     </div>
-    <p><?php _e('You must sign in or register with us to continue with your purchase', 'wpsc');?></p>
     <?php endif; ?>
     <div class="checkout_forms_div">
 	<form class='wpsc_checkout_forms' action='<?php echo esc_url( get_option( 'shopping_cart_url' ) ); ?>' method='post' enctype="multipart/form-data">
@@ -315,7 +315,7 @@ endif;
       <?php
       endif;
       ?>
-      <h3>ご注文者情報</h3>
+      <h3>ユーザー情報</h3>
       <p>以下の記入欄に入力して、一番下の「購入する」ボタンを押してください<br>&nbsp;</p>
 <?php ob_start(); ?>
    <table class='wpsc_checkout_table table-1'>
