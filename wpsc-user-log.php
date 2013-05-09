@@ -11,6 +11,11 @@ global $current_tab; ?>
 
 <div class="wrap">
 	<?php if ( is_user_logged_in() ) : ?>
+        <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php _e('Logout','sp'); ?>" class="account_logout">
+            <div class="logout-div">
+                ログアウトする
+            </div>
+        </a>
 		<div class="user-profile-links">
 
 			<?php $default_profile_tab = apply_filters( 'wpsc_default_user_profile_tab', 'purchase_history' ); ?>

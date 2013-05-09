@@ -782,10 +782,10 @@ section[role="banner"] {
     text-decoration: none;
     color: #f1f1f1;
 }
-.shopping-cart-wrapper .shoppingcart table thead,
-.shopping-cart-wrapper .shoppingcart table tbody{
-    display: none;
-}
+/*.shopping-cart-wrapper .shoppingcart table thead,*/
+/*.shopping-cart-wrapper .shoppingcart table tbody{*/
+    /*display: none;*/
+/*}*/
 .test-bold{
     font-weight: bold;
 }
@@ -812,11 +812,21 @@ footer[role="contentinfo"] {
     color:white;
 }
 footer[role="contentinfo"] a {
-	color: #686868;
+	/*color: #686868;*/
+    color: #eeeeee;
 }
 footer[role="contentinfo"] a:hover {
 	color: #21759b;
 }
+footer[role="contentinfo"] .twitter-link,
+footer[role="contentinfo"] .facebook-link{
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-left: 0.285714285rem;
+    margin-right: 0.285714285rem;
+}
+
 /* search result */
 
 body.search-results .page-header {
@@ -877,13 +887,16 @@ body.search-results .search-productcol a.wpsc_product_title{
 	margin-bottom: 1.714285714rem;
 }
 .entry-header .entry-title {
+    font-family: 'Montserrat', sans-serif;
 	font-size: 20px;
 	font-size: 1.428571429rem;
 	line-height: 1.2;
-	font-weight: normal;
+	font-weight: bold;
     vertical-align: middle;
     padding-top:12px;
     padding-top:0.857142857rem;
+    padding-left: 8px;
+    padding-left: 0.571428571rem;
 }
 .entry-header .entry-title a {
 	text-decoration: none;
@@ -1707,10 +1720,14 @@ img#wpstats {
         width: 100%;
 		border-bottom: 0;
 		color: #6a6a6a;
-		line-height: 3.692307692;
+		/*line-height: 3.692307692;*/
+        line-height: 2;
 		text-transform: uppercase;
 		white-space: nowrap;
         text-align: center;
+        font-size: 17px;
+        font-size: 1.214285714rem;
+        font-family: 'Montserrat', sans-serif;
 	}
 	.main-navigation li {
 		/*margin: 0 40px 0 0;*/
@@ -1785,10 +1802,10 @@ img#wpstats {
         width: 80px;
         width: 5.714285714rem;
     }
-    .shopping-cart-wrapper .shoppingcart table thead,
-    .shopping-cart-wrapper .shoppingcart table tbody{
-        display: table-row-group;
-    }
+    /*.shopping-cart-wrapper .shoppingcart table thead,*/
+    /*.shopping-cart-wrapper .shoppingcart table tbody{*/
+        /*display: table-row-group;*/
+    /*}*/
 
 /*getback from toggled-on-menu to 600px-menu*/
     ul.nav-menu.toggled-on{
@@ -1895,7 +1912,9 @@ img#wpstats {
         margin: 0;
         text-align: center;
     }
-
+    footer[role="contentinfo"]{
+        text-align: left;
+    }
 }
 
 /* Minimum width of 960 pixels. */

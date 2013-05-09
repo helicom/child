@@ -30,6 +30,7 @@
 <![endif]-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script type='text/javascript' src='<?php bloginfo('siteurl');?>/wp-content/themes/child/wp-vesp.js'></script>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <?php wp_head(); ?>
 </head>
 
