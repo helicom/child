@@ -24,7 +24,7 @@ jQuery(document).ready(function(){
     });
     var stockText = jQuery(".single_product_display .product_form div.wpsc_product_price:nth-child(3)>div")
     jQuery(stockText).change(function(){
-    
+
         if(jQuery(this).hasClass("out_of_stock")){
             jQuery(showBuy).hide();
         }else{
