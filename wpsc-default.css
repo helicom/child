@@ -51,11 +51,14 @@ Author URI: http://instinct.co.nz
     font-size:1.2em;
 }
 
+.default_product_display .imagecol .product_image{
+    cursor: auto;
+}
+
 .wpcart_gallery .attachment-gold-thumbnails, .single_product_display .imagecol .product_image{
 	cursor: -webkit-zoom-in;
 	cursor: -moz-zoom-in;
 }
-
 
 .single_product_display form.product_form .wpsc_buy_button_container,
 #content .single_product_display form.product_form .wpsc_buy_button_container{

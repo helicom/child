@@ -87,7 +87,7 @@ $image_width = get_option('product_image_width');
 						?>
 					</div><!--close imagecol-->
 				<?php endif; ?>
-					<div class="productcol";" >
+					<div class="productcol" >
                         <h2 class="prodtitle entry-title">
                             <?php if(get_option('hide_name_link') == 1) : ?>
                             <?php echo wpsc_the_product_title(); ?>
