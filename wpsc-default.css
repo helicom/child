@@ -467,6 +467,15 @@ a.account_logout{
     background-color: #ffeea0;
 }
 
+#post-27 .wrap .user-profile-links a{
+    margin: 0 4px;
+    margin: 0 0.285714285rem;
+}
+
+#post-27 .wrap .user-profile-links a:nth-child(3){
+    /*Hide "Your Downloads"*/
+    display: none;
+}
 
 .wpsc_registration_form {
 	float:none;
