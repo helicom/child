@@ -1,3 +1,8 @@
+var nowVisibleBox;
+var slideWrapper;
+var slideInterval = 4000;
+var slideLock;
+
 jQuery(document).ready(function(){
     jQuery("#jQuerytest").click(function(){
         jQuery("#jQuerytest").toggleClass("test-bold");
@@ -22,13 +27,32 @@ jQuery(document).ready(function(){
             jQuery(showBuy).show("fast");
         }
     });
-    var stockText = jQuery(".single_product_display .product_form div.wpsc_product_price:nth-child(3)>div")
-    jQuery(stockText).change(function(){
 
-        if(jQuery(this).hasClass("out_of_stock")){
-            jQuery(showBuy).hide();
-        }else{
-            jQuery(showBuy).show("fast");
+    //home slide show
+    nowVisibleBox = 1;
+    slideWrapper = $("div#slide-wrapper");
+    slideLock = 1;
+
+    jQuery(".prevSlide").click(function(){
+        if(nowVisibleBox == 1){
+            slideWrapper.find("p:visible").fadeOut();
+            slideWrapper.find("p:last-child").fadeIn();
+            nowVisibleBox = 11;
+        } else {
+            slideWrapper.find("p:visible").fadeOut();
+            slideWrapper.find("p:visible").prev().fadeIn();
+            nowVisibleBox --;
+        }
+    });
+    jQuery(".nextSlide").click(function(){
+        if(nowVisibleBox == 11){
+            slideWrapper.find("p:visible").fadeOut();
+            slideWrapper.find("p:first-child").fadeIn();
+            nowVisibleBox = 1;
+        } else {
+            slideWrapper.find("p:visible").fadeOut();
+            slideWrapper.find("p:visible").next().fadeIn();
+            nowVisibleBox ++;
         }
     });
 
@@ -47,4 +71,17 @@ jQuery(document).ready(function(){
             });
         }
     });
+    setInterval("autoSlideShow()",slideInterval);
 });
+
+function autoSlideShow(){
+    if(nowVisibleBox == 11){
+        slideWrapper.find("p:visible").fadeOut();
+        slideWrapper.find("p:first-child").fadeIn();
+        nowVisibleBox = 1;
+    } else {
+        slideWrapper.find("p:visible").fadeOut();
+        slideWrapper.find("p:visible").next().fadeIn();
+        nowVisibleBox ++;
+    }
+}

@@ -435,6 +435,77 @@ body.full-width .entry-header{
     display:none;
 }
 
+/*home*/
+body.home .site-content #slide-wrapper{
+    position: relative;
+    height: auto;
+}
+body.home .site-content #slide-wrapper p.boxes{
+    display: none;
+    position: absolute;
+}
+body.home .site-content #slide-wrapper p#box1{
+    display: block;
+}
+body.home .site-content #slide-wrapper img{
+    max-width: 100%;
+    width: auto;
+}
+body.home .site-content #for-min-height p.boxes2{
+    position: relative;
+}
+body.home .site-content #for-min-height img{
+    max-width: 100%;
+    width: auto;
+}
+
+body.home .mover{
+    position: relative;
+    display: block;
+    max-width: 600px;
+}
+body.home .prevSlide,
+body.home .nextSlide{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+body.home .prevSlide{
+    float: left;
+}
+body.home .nextSlide{
+    float: right;
+}
+
+body.home .newsUpdate{
+    font-size: 17px;
+    font-size: 1.214285714rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+body.home .newsList{
+    line-height: 21px;
+    line-height: 1.5rem;
+    margin-bottom: 20px;
+}
+body.home .newsList table tr td:first-child{
+    padding-right: 14px;
+    padding-right: 1rem;
+}
+body.home .photoGal{
+    font-size: 17px;
+    font-size: 1.214285714rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.site-content article {
+    margin-bottom: 21px;
+    margin-bottom: 1.5rem;
+}
+
 /* =Archives
 -------------------------------------------------------------- */
 
