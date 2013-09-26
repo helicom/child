@@ -1,6 +1,6 @@
 var nowVisibleBox;
 var slideWrapper;
-var slideInterval = 4000;
+var slideInterval = 7000;
 var slideLock;
 
 jQuery(document).ready(function(){
